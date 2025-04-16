@@ -1,211 +1,136 @@
-```markdown
-# 🔥 MERN TurboStack - Modern Full-Stack Boilerplate
 
-![MERN Stack](https://via.placeholder.com/800x400.png?text=MERN+TurboStack+Screenshot+📸) 
-*Add your project screenshot here*
 
-A high-performance full-stack foundation featuring cutting-edge technologies with batteries included ⚡
+![Screenshot 2025-04-16 150137](https://github.com/user-attachments/assets/056f5028-e207-4b02-a7ab-273bd60ce069)
+![Screenshot 2025-04-16 150120](https://github.com/user-attachments/assets/1850d77a-6b14-4dc0-bcbb-2c797c0c5592)
+![Screenshot 2025-04-16 150129](https://github.com/user-attachments/assets/3890a5f3-1858-43ed-b513-0cd218a8d6c5)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Next.js](https://img.shields.io/badge/Next.js-13-blue)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+# Backend API
 
-## ✨ Features
+This is the backend API for our MERN stack application built with Node.js, Express, and MongoDB.
 
-- **Ultra-Modern Stack**: Next.js 13 + TypeScript + Node.js
-- **UI Superpowers**: Tailwind + Material UI + ShadCN
-- **Production Ready**: Docker support + Deployment configs
-- **Smart Tooling**: Eslint + Prettier + Husky
-- **Full Type Safety**: End-to-end TypeScript
+## Prerequisites
 
----
+- Node.js (v18 or higher)
+- MongoDB (local instance or MongoDB Atlas)
 
-## 🚀 Quick Start
+## Setup
 
-### Prerequisites
-
-- Node.js ≥ 18.x
-- MongoDB Atlas account or local instance
-- Docker (optional)
+1. Clone the repository
+2. Navigate to the backend directory
 
 ```bash
-# Clone with SSH
-git clone git@github.com:yourusername/mern-turbostack.git
-
-# Or with HTTPS
-git clone https://github.com/yourusername/mern-turbostack.git
+cd backend
 ```
 
----
-
-## 🛠️ Installation & Setup
-
-### 1. Backend Configuration
+3. Install dependencies
 
 ```bash
-cd server && npm install
+npm install
 ```
 
-Create `.env` file:
-```env
+4. Create a `.env` file in the root directory with the following variables:
+
+```
 PORT=5000
-MONGO_URI=mongodb+srv://<user>:<password>@cluster0.abc123.mongodb.net/dbname
-JWT_SECRET=your_jwt_secret_here
+MONGODB_URI=mongodb://localhost:27017/your_database
+JWT_SECRET=your_jwt_secret
 ```
 
-### 2. Frontend Configuration
+## Running the Application
+
+### For development
 
 ```bash
-cd client && npm install
-```
-
-Create `.env.local` file:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
-NEXT_PUBLIC_GA_ID=UA-XXXXX-X
-```
-
----
-
-## ▶️ Running the Application
-
-### Development Mode
-
-```bash
-# Start backend (from /server)
-npm run dev
-
-# Start frontend (from /client)
 npm run dev
 ```
 
-![Development Setup](https://via.placeholder.com/600x200.png?text=Dev+Environment+Setup+🖥️)
+This will start the server with nodemon for automatic reloading.
 
-### Production Build
-
-```bash
-# Build both client and server
-cd client && npm run build
-cd ../server && npm run build
-```
-
----
-
-## 🐳 Docker Deployment
-
-![Docker](https://img.shields.io/badge/Docker-3.8-blue?logo=docker)
-
-```dockerfile
-# Build the entire stack
-docker-compose build
-
-# Start containers
-docker-compose up -d
-
-# Stop containers
-docker-compose down
-```
-
----
-
-## 📦 Database Setup
-
-![MongoDB](https://img.shields.io/badge/MongoDB-6.0-green?logo=mongodb)
-
-1. Create free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. Whitelist your IP address
-3. Create database user
-4. Get connection string and update `.env`
-
----
-
-## ☁️ Deployment
-
-### Frontend to Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fmern-turbostack)
-
-### Backend to Render
-
-1. Create new Web Service
-2. Connect GitHub repository
-3. Set environment variables
-4. Deploy!
-
----
-
-## 🧩 Tech Stack
-
-| Layer        | Technologies                                                                 |
-|--------------|------------------------------------------------------------------------------|
-| **Frontend** | ![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3.3-06B6D4) |
-| **Backend**  | ![Node.js](https://img.shields.io/badge/Node.js-18-green?logo=node.js) ![Express](https://img.shields.io/badge/Express-4.18-lightgrey) |
-| **Database** | ![MongoDB](https://img.shields.io/badge/MongoDB-6.0-green?logo=mongodb) ![Mongoose](https://img.shields.io/badge/Mongoose-7.0-orange) |
-| **DevOps**   | ![Docker](https://img.shields.io/badge/Docker-24.0-blue?logo=docker) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-3.0-black?logo=github) |
-
----
-
-## 📂 Project Structure
+### For production
 
 ```bash
-├── client/             # Next.js 13 Frontend
-│   ├── app/           # App router directory
-│   ├── components/    # UI components (shadcn/ui)
-│   ├── lib/           # API clients, utilities
-│   └── public/        # Static assets
-│
-├── server/            # Express Backend
-│   ├── controllers/   # Route handlers
-│   ├── middleware/    # Auth & validation
-│   └── models/        # MongoDB schemas
-│
-├── docker-compose.yml # Full-stack container config
-└── .github/           # CI/CD workflows
+npm start
 ```
 
----
+The server will run on http://localhost:5000 by default.
 
-## 🤝 Contributing
+## Scripts
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+- `npm start` - Run the production server
+- `npm run dev` - Run the development server with nodemon
+- `npm test` - Run tests
 
----
 
-## 📄 License
+# Next.js Client
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This is the frontend client for our MERN stack application built with Next.js.
 
----
+## Prerequisites
 
-## 🌟 Stargazers
+- Node.js (v18 or higher)
 
-[![Stargazers](https://reporoster.com/stars/yourusername/mern-turbostack)](https://github.com/yourusername/mern-turbostack/stargazers)
+## Setup
 
----
+1. Clone the repository
+2. Navigate to the client directory
 
-> **Note**: Replace all `yourusername` occurrences with your GitHub username and update placeholder images with actual project screenshots.
-``` 
+```bash
+cd client
+```
 
-This version includes:
-1. Modern badge styling for technologies
-2. Clear visual hierarchy with emojis
-3. Docker deployment instructions
-4. MongoDB setup guide
-5. Vercel/Render deployment badges
-6. Responsive table layout for tech stack
-7. Placeholder image spots (replace URLs)
-8. Stargazers tracker
-9. Contribution guidelines
-10. License information
+3. Install dependencies
 
-To make it even better:
-1. Add actual screenshots of your project
-2. Include real MongoDB connection instructions
-3. Add error handling guides
-4. Include API documentation examples
-5. Add testing section (Jest/Cypress)
-6. Include performance metrics
+```bash
+npm install
+```
+
+4. Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+
+## Running the Application
+
+### For development
+
+```bash
+npm run dev
+```
+
+This will start the Next.js development server on http://localhost:3000.
+
+### For production build
+
+```bash
+npm run build
+npm start
+```
+
+### For static export
+
+```bash
+npm run build
+npm run export
+```
+
+
+## Project Structure
+
+```
+├── public/
+├── components/
+├── styles/     # CSS/SCSS styles
+├── context/    # React Context
+└── utils/      # Utility functions
+├── app/
+│   ├── pages/      # Next.js pages
+└── next.config.js  # Next.js configuration
+```
+
+## Scripts
+
+- `npm run dev` - Run the development server
+- `npm run build` - Build the application for production
+- `npm start` - Start the production server
+- `npm run lint` - Run ESLint
